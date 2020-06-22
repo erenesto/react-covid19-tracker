@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/react",
+    "react-hooks"
+  ],
+  "plugins": ["prettier", "flowtype", "react-hooks", "react"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "jsx-a11y/href-no-hash": ["off"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "max-len": [
+      "warn",
+      {
+        "tabWidth": 2,
+        "code": 85,
+        "ignoreComments": false,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ]
+  }
+}

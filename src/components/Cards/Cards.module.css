@@ -1,0 +1,17 @@
+.cardContent {
+  text-align: center;
+  color: var(--font-white);
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+}
+
+.cardNumber {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.cardInfo {
+  font-size: 1.2rem;
+}

@@ -1,0 +1,16 @@
+.tableRoot {
+  width: '100%';
+}
+
+.tableCell {
+  font-size: 1.4rem !important;
+}
+
+.tableHead .tableCell {
+  font-weight: 600;
+  background-color: #eee;
+}
+
+.tablePagination {
+  font-size: 1.4rem !important;
+}

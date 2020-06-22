@@ -1,0 +1,15 @@
+.selectorsWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.selectorsWrapper select {
+  min-width: 20rem;
+}
+
+button.compareButton {
+  display: block;
+  margin: 4rem auto 0;
+}

@@ -1,5 +1,3 @@
-## Covid19 Tracker
-
 ### Starting the app
 
 - Run the command `yarn` in project directory to install dependencies.

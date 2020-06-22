@@ -1,0 +1,12 @@
+.chartWrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 0;
+}

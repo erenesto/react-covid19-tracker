@@ -55,7 +55,7 @@ export const fetchCountryTimeline = (code, forCompare) => async (dispatch) => {
     })
 
   const lastSixtyDays = lastSixty(withDate)
-  const cases = lastSixtyDays.map((d) => d.total_cases)
+  const cases = lastSixtyDays.map((d) => d.new_daily_cases)
   const deathsAvg = lastSixtyDays.map((d) => d.total_deaths / d.total_cases)
 
   const sevenDaysMAvg = movingAverage(7, cases)

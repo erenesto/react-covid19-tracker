@@ -5,13 +5,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import Cards from '../components/Cards/Cards'
 import CountriesTable from '../components/CountriesTable/CountriesTable'
 
-import { fetchAllCountries, fetchTotalResults } from '../redux/actions'
+import {
+  fetchAllCountries,
+  fetchTotalResults,
+  clearComparingCountry,
+} from '../redux/actions'
 
 const Home = () => {
   const dispatch = useDispatch()
 
   const {
-    countriesData: { countries },
+    countriesData: { countries, country },
     totals,
   } = useSelector((state) => state)
 
@@ -22,6 +26,9 @@ const Home = () => {
 
   useEffect(() => {
     fetchDatas()
+    if (country) {
+      dispatch(clearComparingCountry())
+    }
   }, [])
 
   return (

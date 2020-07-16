@@ -9,7 +9,7 @@ import {
   CLEAR_COMPARE_COUNTRY,
 } from './types'
 
-import { lastSixty, movingAverage } from '../../utils'
+import { lastSixty, movingAverage, cleanServerResponseError } from '../../utils'
 
 const _fetchTotalResults = _.memoize(async (dispatch) => {
   const response = await api.get('/free-api', {
@@ -18,9 +18,11 @@ const _fetchTotalResults = _.memoize(async (dispatch) => {
     },
   })
 
+  const cleanResponse = cleanServerResponseError(response.data)
+
   dispatch({
     type: FETCH_TOTALS,
-    payload: response.data.results[0],
+    payload: cleanResponse.results[0],
   })
 })
 export const fetchTotalResults = () => (dispatch) => _fetchTotalResults(dispatch)
@@ -32,9 +34,11 @@ const _fetchAllCountries = _.memoize(async (dispatch) => {
     },
   })
 
+  const cleanResponse = cleanServerResponseError(response.data)
+
   dispatch({
     type: FETCH_ALL_COUNTRIES,
-    payload: response.data.countryitems[0],
+    payload: cleanResponse.countryitems[0],
   })
 })
 export const fetchAllCountries = () => (dispatch) => _fetchAllCountries(dispatch)
@@ -45,8 +49,9 @@ export const fetchCountryTimeline = (code, forCompare) => async (dispatch) => {
       countryTimeline: code,
     },
   })
+  const cleanResponse = cleanServerResponseError(response.data)
 
-  const timeline = response.data.timelineitems[0]
+  const timeline = cleanResponse.timelineitems[0]
 
   const withDate = Object.keys(timeline)
     .filter((item) => item !== 'stat')
@@ -68,7 +73,7 @@ export const fetchCountryTimeline = (code, forCompare) => async (dispatch) => {
       sevenDaysMAvg,
       threeDaysMAvgMortalityRate,
       forCompare,
-      info: response.data.countrytimelinedata[0].info,
+      info: cleanResponse.countrytimelinedata[0].info,
     },
   })
 }
@@ -83,10 +88,12 @@ export const fetchCountryTotals = (code, countries, forCompare) => async (
       },
     })
 
+    const cleanResponse = cleanServerResponseError(response.data)
+
     dispatch({
       type: FETCH_COUNTRY_TOTALS,
       payload: {
-        country: response.data.countrydata[0],
+        country: cleanResponse.countrydata[0],
         forCompare,
       },
     })

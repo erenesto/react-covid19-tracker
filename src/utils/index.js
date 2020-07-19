@@ -67,5 +67,9 @@ export const movingAverage = (range, arr) => {
 }
 
 export const cleanServerResponseError = (res) => {
-  return JSON.parse(res.substring(res.indexOf('{')))
+  if (typeof res === 'string') {
+    return JSON.parse(res.substring(res.indexOf('{')))
+  }
+
+  return res
 }
